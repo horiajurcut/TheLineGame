@@ -9,10 +9,10 @@ public class GameManager : MonoBehaviour {
         StartCoroutine(PlayEndGameAnimation());
     }
 
-    private IEnumerator PlayEndGameAnimation()
+    private static IEnumerator PlayEndGameAnimation()
     {
         Debug.Log("Game Over");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
