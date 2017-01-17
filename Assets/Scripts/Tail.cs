@@ -57,6 +57,7 @@ public class Tail : MonoBehaviour {
         var currentLineRenderer = _lineSegments.Last().GetComponent<LineRenderer>();
         var currentEdgeCollider2D = _lineSegments.Last().GetComponent<EdgeCollider2D>();
 
+        // EdgeCollider2D needs to have at least 2 points
         if (_segmentTailPoints.Last().Count == 2)
         {
             currentEdgeCollider2D.enabled = true;
@@ -87,14 +88,8 @@ public class Tail : MonoBehaviour {
         const float alpha = 1.0f;
         var gradient = new Gradient();
         gradient.SetKeys(
-            new GradientColorKey[]
-            {
-                new GradientColorKey(TailColorStart, 0.0f), new GradientColorKey(TailColorEnd, 1.0f)
-            },
-            new GradientAlphaKey[]
-            {
-                new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f)
-            }
+            new[] { new GradientColorKey(TailColorStart, 0.0f), new GradientColorKey(TailColorEnd, 1.0f) },
+            new[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
         );
         newLineRenderer.material = TailMaterial;
         newLineRenderer.colorGradient = gradient;
