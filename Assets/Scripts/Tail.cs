@@ -17,7 +17,7 @@ public class Tail : MonoBehaviour {
     private List<List<Vector2>> _segmentTailPoints;
     private List<GameObject> _lineSegments;
 
-    private const float TimeToGap = .25f;
+    private const float TimeToGap = .15f;
     private const float TimeBetweenGaps = 2.5f;
     private float _timeSinceLastGap;
 
@@ -57,7 +57,7 @@ public class Tail : MonoBehaviour {
         var currentLineRenderer = _lineSegments.Last().GetComponent<LineRenderer>();
         var currentEdgeCollider2D = _lineSegments.Last().GetComponent<EdgeCollider2D>();
 
-        if (_segmentTailPoints.Last().Count == 1)
+        if (_segmentTailPoints.Last().Count == 2)
         {
             currentEdgeCollider2D.enabled = true;
         }
@@ -87,16 +87,22 @@ public class Tail : MonoBehaviour {
         const float alpha = 1.0f;
         var gradient = new Gradient();
         gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(TailColorStart, 0.0f), new GradientColorKey(TailColorEnd, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+            new GradientColorKey[]
+            {
+                new GradientColorKey(TailColorStart, 0.0f), new GradientColorKey(TailColorEnd, 1.0f)
+            },
+            new GradientAlphaKey[]
+            {
+                new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f)
+            }
         );
         newLineRenderer.material = TailMaterial;
         newLineRenderer.colorGradient = gradient;
 
         newLineRenderer.useWorldSpace = true;
-        newLineRenderer.widthCurve = AnimationCurve.Linear(0f, .1f, 1f, .1f);
-        newLineRenderer.startWidth = .1f;
-        newLineRenderer.endWidth = .1f;
+        newLineRenderer.widthCurve = AnimationCurve.Linear(0f, .08f, 1f, .08f);
+        newLineRenderer.startWidth = .08f;
+        newLineRenderer.endWidth = .08f;
 
         newLineRenderer.numCornerVertices = 5;
         newLineRenderer.numCapVertices = 5;

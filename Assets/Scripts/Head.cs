@@ -26,12 +26,15 @@ public class Head : MonoBehaviour {
     {
         if (!collision.CompareTag("instantDeath")) return;
 
-        Debug.Log(collision.name);
-
         Speed = 0f;
         RotationSpeed = 0f;
 
-        // Replace with singleton
-        GameObject.FindObjectOfType<GameManager>().EndGame();
+        // Replace with Singleton
+        FindObjectOfType<GameManager>().EndGame();
+    }
+
+    public void OnPickUp(PowerUp.PowerUpType powerUpType)
+    {
+        Debug.Log("Picked up " + powerUpType);
     }
 }
