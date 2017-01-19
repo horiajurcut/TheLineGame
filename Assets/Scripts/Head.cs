@@ -29,8 +29,7 @@ public class Head : MonoBehaviour {
         Speed = 0f;
         RotationSpeed = 0f;
 
-        // Replace with Singleton
-        FindObjectOfType<GameManager>().EndGame();
+        GameManager.Instance.EndGame();
     }
 
     public void OnPickUp(PowerUp.PowerUpType powerUpType)
