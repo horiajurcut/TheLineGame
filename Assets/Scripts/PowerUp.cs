@@ -24,7 +24,7 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.SendMessage("OnPickUp", TypeOfPowerUp);
+            PowerUpManager.Instance.OnPickUp(TypeOfPowerUp, collision);
         }
         GameObject.Destroy(gameObject);
     }

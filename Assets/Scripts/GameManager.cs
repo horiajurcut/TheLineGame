@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         var bottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f));
         _screenBoundsPoints.Add(new Vector2(bottomLeft.x, bottomLeft.y));
 
-        // Connect the last point with the first one
+        // Connect the last point with the first one in the EdgeCollider2D
         _screenBoundsPoints.Add(new Vector2(topLeft.x, topLeft.y));
 
         var screenBounds = gameObject.AddComponent<EdgeCollider2D>();

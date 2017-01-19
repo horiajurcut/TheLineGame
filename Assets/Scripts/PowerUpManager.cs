@@ -5,10 +5,24 @@ using UnityEngine;
 public class PowerUpManager : MonoBehaviour
 {
 
+    public static PowerUpManager Instance;
+
     public PowerUp[] PowerUpsPrefabs;
     public float TimeBetweenPowerUpSpawns = 5f;
 
-    private float _nextPowerUpSpawnTime = 0f;
+    private float _nextPowerUpSpawnTime;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Update()
     {
@@ -27,5 +41,10 @@ public class PowerUpManager : MonoBehaviour
         newPowerUp.transform.parent = GameObject.Find("PowerUps").transform;
 
         _nextPowerUpSpawnTime = Time.time + TimeBetweenPowerUpSpawns;
+    }
+
+    public void OnPickUp(PowerUp.PowerUpType powerUpType, Collider2D collision)
+    {
+        Debug.Log(collision.name + " picked up " + powerUpType);
     }
 }
