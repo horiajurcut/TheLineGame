@@ -2,12 +2,12 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Players
+namespace Player
 {
-    public class PlayersManager : MonoBehaviour
+    public class PlayerManager : MonoBehaviour
     {
 
-        public static PlayersManager Instance;
+        public static PlayerManager Instance;
 
         [Header("Players Spawn Settings")]
         public GameObject PlayerPrefab;

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace PowerUps
+namespace PowerUp
 {
     public class PowerUpManager : MonoBehaviour
     {
 
         public static PowerUpManager Instance;
 
-        public PowerUp[] PowerUpsPrefabs;
+        public global::PowerUp.PowerUp[] PowerUpsPrefabs;
         public float TimeBetweenPowerUpSpawns = 5f;
 
         private float _nextPowerUpSpawnTime;
@@ -43,7 +43,7 @@ namespace PowerUps
             _nextPowerUpSpawnTime = Time.time + TimeBetweenPowerUpSpawns;
         }
 
-        public void OnPickUp(PowerUp.PowerUpType powerUpType, Collider2D collision)
+        public void OnPickUp(global::PowerUp.PowerUp.PowerUpType powerUpType, Collider2D collision)
         {
             Debug.Log(collision.name + " picked up " + powerUpType);
         }

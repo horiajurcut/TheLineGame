@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Util;
 
-namespace PowerUps
+namespace PowerUp
 {
     public class PowerUp : MonoBehaviour
     {

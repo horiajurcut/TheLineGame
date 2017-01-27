@@ -1,7 +1,6 @@
-﻿using PowerUps;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Players
+namespace Player
 {
     public class Head : MonoBehaviour {
 
@@ -32,10 +31,10 @@ namespace Players
             Speed = 0f;
             RotationSpeed = 0f;
 
-            PlayersManager.Instance.RemoveFromActivePlayers(gameObject.transform.parent.gameObject);
+            PlayerManager.Instance.RemoveFromActivePlayers(gameObject.transform.parent.gameObject);
         }
 
-        public void OnPickUp(PowerUp.PowerUpType powerUpType)
+        public void OnPickUp(PowerUp.PowerUp.PowerUpType powerUpType)
         {
             Debug.Log("Picked up " + powerUpType);
         }

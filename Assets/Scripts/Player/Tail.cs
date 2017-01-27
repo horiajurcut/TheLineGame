@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Players
+namespace Player
 {
     public class Tail : MonoBehaviour {
 
