@@ -46,7 +46,7 @@ namespace Players
                 var newPlayer = Instantiate(
                     PlayerPrefab,
                     newPlayerPosition,
-                    Quaternion.identity
+                    Quaternion.Euler(new Vector3(0f, 0f, Random.Range(-180f, 180f)))
                 );
 
                 _playerPositions.Add(newPlayerPosition);
