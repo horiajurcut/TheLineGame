@@ -331,5 +331,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 1389942636754532, guid: 119754a6e8c55a94ba6e2cee6ded06db,
     type: 2}
-  NumberOfPlayers: 5
+  NumberOfPlayers: 8
   ScreenCoverage: 0.9

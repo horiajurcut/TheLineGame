@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PowerUps;
+using UnityEngine;
 
 namespace Players
 {
